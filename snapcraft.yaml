@@ -1,4 +1,4 @@
-name: dmidecode
+name: dmidecode-tool
 version: "3.0"
 summary: SMBIOS/DMI table decoder
 description: |
@@ -15,7 +15,7 @@ description: |
  Beware that DMI data have proven to be too unreliable to be blindly trusted.
  Dmidecode does not scan the hardware, it only reports what the BIOS told it to.
 confinement: strict
-grade: devel
+grade: stable
 
 apps:
     dmidecode:
