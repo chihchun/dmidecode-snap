@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Connecting interfaces"
-snap connect dmidecode:hardware-observe :hardware-observe
+snap connect dmidecode-tool:hardware-observe :hardware-observe
