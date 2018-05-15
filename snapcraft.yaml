@@ -1,0 +1,41 @@
+name: dmidecode
+version: "3.0"
+summary: SMBIOS/DMI table decoder
+description: |
+ Dmidecode reports information about the system's hardware as described in the
+ system BIOS according to the SMBIOS/DMI standard.
+ .
+ This information typically includes system manufacturer, model name, serial
+ number, BIOS version, asset tag as well as a lot of other details of varying
+ level of interest and reliability depending on the manufacturer. This will
+ often include usage status for the CPU sockets, expansion slots (e.g. AGP, PCI,
+ ISA) and memory module slots, and the list of I/O ports (e.g. serial, parallel,
+ USB).
+ .
+ Beware that DMI data have proven to be too unreliable to be blindly trusted.
+ Dmidecode does not scan the hardware, it only reports what the BIOS told it to.
+confinement: strict
+grade: devel
+
+apps:
+    dmidecode:
+        command: dmidecode
+        plugs: &default [hardware-observe]
+    vpddecode:
+        command: vpddecode
+        plugs: *default
+    biosdecode:
+        command: biosdecode
+        plugs: *default
+    ownership:
+        command: ownership
+        plugs: *default
+
+parts:
+    tools:
+        source: .
+        plugin: dump
+        stage-packages: [dmidecode]
+        organize:
+            connect-interfaces: bin/connect-interfaces
+            set-path: bin/set-path
