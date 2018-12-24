@@ -16,8 +16,7 @@ description: |
  Dmidecode does not scan the hardware, it only reports what the BIOS told it to.
 confinement: strict
 grade: stable
-architectures:
-    - build-on: [amd64, i386]
+architectures: [amd64, i386]
 
 apps:
     dmidecode:
